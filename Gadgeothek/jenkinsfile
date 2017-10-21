@@ -9,7 +9,7 @@ pipeline {
       steps {
         sh 'echo Build'
         sh './Gadgeothek/gradlew build'
-        archiveArtifacts allowEmptyArchive: true, 'Gadgeothek/**/*.apk'
+        archiveArtifacts allowEmptyArchive: true, artifacts: 'Gadgeothek/**/*.apk'
       }
     }
     
