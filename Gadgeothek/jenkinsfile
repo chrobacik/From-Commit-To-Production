@@ -1,4 +1,4 @@
-pipline {
+pipeline {
   agent {
     node {
       label 'jenkins-slave10.yvu.ch'
@@ -15,6 +15,12 @@ pipline {
       steps {
         sh 'echo End2End Tests'
       }
+    }
+    
+    stage('Package') {
+        steps {
+            sh 'echo Package'
+        }
     }
   }
 }
