@@ -17,7 +17,7 @@ pipeline {
       steps {
         sh 'echo Unit Tests'
         sh '(cd Gadgeothek;./gradlew test)'
-        junit 'Gadgeothek/app/build/test-results/**/*.xml'
+        junit 'Gadgeothek/app/build/test-results/testDemoDebugUnitTest/*.xml'
       }
     }
     
