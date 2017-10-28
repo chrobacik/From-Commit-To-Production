@@ -75,8 +75,6 @@ public class RegisterActivity extends AbstractAuthenticationActivity {
             cancel = true;
         }
 
-        
-
         // Check for a valid matrikel number
         if (TextUtils.isEmpty(matrikelNr)) {
             matrikelNrView.setError(getString(R.string.error_field_required));
