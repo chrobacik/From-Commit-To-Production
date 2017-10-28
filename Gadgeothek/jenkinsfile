@@ -17,10 +17,10 @@ pipeline {
       steps {
         sh 'echo Unit Tests'
         sh '(cd Gadgeothek;./gradlew test)'
-        post {
-          always {
-            junit 'Gadgeothek/app/build/test-results/testDemoDebugUnitTest/*.xml'
-          }
+      }
+      post {
+        always {
+          junit 'Gadgeothek/app/build/test-results/testDemoDebugUnitTest/*.xml'
         }
       }
     }
