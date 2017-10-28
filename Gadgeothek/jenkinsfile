@@ -17,14 +17,14 @@ pipeline {
       steps {
         sh 'echo Unit Tests'
         sh '(cd Gadgeothek;./gradlew test)'
-        junit 'Gadgeothek/build/test-results/**/*.xml'
+        junit 'Gadgeothek/app/build/test-results/**/*.xml'
       }
     }
     
     stage('End2End Tests') {
       steps {
         sh 'echo End2End Tests'
-        
+
       }
     }
     
