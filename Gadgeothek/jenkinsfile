@@ -38,11 +38,5 @@ pipeline {
         sh 'cd Gadgeothek;./zipalign -v -p 4 app/build/outputs/apk/app-full-release-unsigned.apk app-full-release-unsigned-aligned.apk'
       }
     }
-
-    post {
-      always {
-        cleanWs()
-      }
-    }
   }
 }
