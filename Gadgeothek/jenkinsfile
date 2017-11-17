@@ -35,7 +35,7 @@ pipeline {
       steps {
         sh 'echo Package'
         sh 'cd Gadgeothek;./gradlew assembleRelease'
-        sh 'cd Gadgeothek;./zipalign -v -p 4 app-full-release-unsigned.apk app-full-release-unsigned-aligned.apk
+        sh 'cd Gadgeothek;./zipalign -v -p 4 app/build/outputs/apk/app-full-release-unsigned.apk app-full-release-unsigned-aligned.apk'
       }
     }
 
