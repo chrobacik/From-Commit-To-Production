@@ -12,6 +12,8 @@ import android.view.Window;
 
 import ch.hsr.mge.gadgeothek.R;
 import ch.hsr.mge.gadgeothek.service.LibraryService;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class SplashActivity extends AbstractAuthenticationActivity {
     private View progressView;
@@ -20,6 +22,7 @@ public class SplashActivity extends AbstractAuthenticationActivity {
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
         progressView = findViewById(R.id.login_progress);
     }

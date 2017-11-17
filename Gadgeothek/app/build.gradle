@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
     signingConfigs {
@@ -50,26 +56,17 @@ dependencies {
 
     androidTestCompile "com.android.support.test.espresso:espresso-core:3.0.0"
     androidTestCompile "com.android.support.test:runner:1.0.0"
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true;
+    }
 }
 
 buildscript {
     repositories {
-        maven {
-            url 'https://plugins.gradle.org/m2/'
-        }
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
-        classpath 'gradle.plugin.ch.yvu.teststore:gradle-plugin:0.12'
+        classpath 'io.fabric.tools:gradle:1.+'
     }
-}
-
-apply plugin: 'ch.yvu.teststore'
-
-teststore {
-    host 'test-store.testing-knowhow.ch'
-    port  8080
-    testSuite 'c7d89fcf-ca75-41f5-8e89-6e55dd061279'
-    revision System.properties['revision']
-    xmlReports ~/.*\/test-results\/test.*\.xml/
-    incremental true
 }
