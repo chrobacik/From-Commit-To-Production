@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import ch.hsr.mge.gadgeothek.domain.Gadget;
@@ -25,9 +27,21 @@ public class LoanTest {
 
     @Test
     public void isOverdue() throws Exception {
-        Loan loan = new Loan("100", new Gadget("iPhone"), new Date(2017, 10, 28), null);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -5);
+
+        Loan loan = new Loan("100", new Gadget("iPhone"), calendar.getTime(), null);
+
+        Assert.assertFalse(loan.isOverdue());
+    }
+
+    @Test
+    public void isOverdueShouldBeTrue() throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -10);
+
+        Loan loan = new Loan("100", new Gadget("iPhone"), calendar.getTime(), null);
 
         Assert.assertTrue(loan.isOverdue());
     }
-
 }

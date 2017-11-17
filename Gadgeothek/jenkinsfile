@@ -28,14 +28,19 @@ pipeline {
     stage('End2End Tests') {
       steps {
         sh 'echo End2End Tests'
-
       }
     }
     
     stage('Package') {
-        steps {
-            sh 'echo Package'
-        }
+      steps {
+        sh 'echo Package'
+      }
+    }
+
+    post {
+      always {
+        cleanWs()
+      }
     }
   }
 }
